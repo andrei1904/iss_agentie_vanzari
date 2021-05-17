@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--    <util:properties id="jdbcProps1">-->
+<!--        <prop key="motorcycleContest.jdbc.driver">org.sqlite.JDBC</prop>-->
+<!--        <prop key="motorcycleContest.jdbc.url">jdbc:sqlite:C:/Fac/Sem4/MPP/Proiect/Db/MotorcycleContest.db</prop>-->
+<!--    </util:properties>-->
+
+<!--    <util:properties id="jdbcProps" location="classpath:bd.config"/>-->
+
+    <bean id="hibernateUtil" class="repository.HibernateUtil"/>
+
+    <bean id="salesAgentRepo" class="repository.SalesAgentRepository">
+        <constructor-arg ref="hibernateUtil"/>
+    </bean>
+
+    <bean id="salesAgentService" class="service.SalesAgentService">
+        <constructor-arg ref="salesAgentRepo"/>
+    </bean>
+
+    <bean id="productRepo" class="repository.ProductRepository">
+        <constructor-arg ref="hibernateUtil"/>
+    </bean>
+
+    <bean id="productService" class="service.ProductService">
+        <constructor-arg ref="productRepo"/>
+    </bean>
+
+    <bean id="allService" class="service.AllService">
+        <constructor-arg ref="salesAgentService"/>
+        <constructor-arg ref="productService"/>
+    </bean>
+
+</beans>
