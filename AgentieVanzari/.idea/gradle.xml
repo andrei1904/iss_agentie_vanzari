@@ -9,6 +9,15 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/SalesAgencyClient" />
+            <option value="$PROJECT_DIR$/SalesAgencyModel" />
+            <option value="$PROJECT_DIR$/SalesAgencyPersistance" />
+            <option value="$PROJECT_DIR$/SalesAgencyPersistence" />
+            <option value="$PROJECT_DIR$/SalesAgencyServer" />
+            <option value="$PROJECT_DIR$/SalesAgencyService" />
+            <option value="$PROJECT_DIR$/SalesAgencyServices" />
+            <option value="$PROJECT_DIR$/client" />
+            <option value="$PROJECT_DIR$/server" />
           </set>
         </option>
       </GradleProjectSettings>

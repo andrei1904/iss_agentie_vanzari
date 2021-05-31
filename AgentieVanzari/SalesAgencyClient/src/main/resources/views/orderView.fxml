@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="261.0" prefWidth="278.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="salesAgency.client.gui.OrderController">
+    <Label layoutX="120.0" layoutY="33.0" text="Produs" />
+    <Label layoutX="115.0" layoutY="106.0" text="Cantitate" />
+    <TextField fx:id="textFieldQuantity" alignment="CENTER" layoutX="94.0" layoutY="133.0" prefHeight="25.0" prefWidth="93.0" />
+    <Button layoutX="106.0" layoutY="194.0" mnemonicParsing="false" onAction="#handleConfirmOrder" text="Confirma" />
+    <TextField fx:id="textFieldProduct" alignment="CENTER" editable="false" layoutX="62.0" layoutY="62.0" prefHeight="25.0" prefWidth="151.0">
+      <font>
+         <Font name="System Bold" size="13.0" />
+      </font></TextField>
+</AnchorPane>

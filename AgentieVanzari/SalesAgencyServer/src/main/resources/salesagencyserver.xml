@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                            ">
+
+    <bean id="hibernateUtil" class="salesAgency.persistence.HibernateUtil"/>
+
+    <bean id="salesAgentRepo" class="salesAgency.persistence.SalesAgentRepository">
+        <constructor-arg ref="hibernateUtil"/>
+    </bean>
+
+    <bean id="productRepo" class="salesAgency.persistence.ProductRepository">
+        <constructor-arg ref="hibernateUtil"/>
+    </bean>
+
+    <bean id="orderRepo" class="salesAgency.persistence.OrderRepository">
+        <constructor-arg ref="hibernateUtil"/>
+    </bean>
+
+    <bean id="salesAgencyService" class="salesAgency.server.SalesAgencyServicesImpl">
+        <constructor-arg ref="salesAgentRepo"/>
+        <constructor-arg ref="productRepo"/>
+        <constructor-arg ref="orderRepo"/>
+    </bean>
+
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="SalesAgency"/>
+        <property name="service" ref="salesAgencyService"/>
+        <property name="serviceInterface" value="salesAgency.services.ISalesAgencyServices"/>
+        <property name="servicePort" value="1099"/>
+    </bean>
+
+</beans>

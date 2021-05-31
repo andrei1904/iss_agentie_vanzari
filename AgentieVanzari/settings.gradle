@@ -1,2 +1,11 @@
 rootProject.name = 'AgentieVanzari'
+include 'client'
+include 'server'
+include 'SalesAgencyModel'
+include 'SalesAgencyService'
+include 'SalesAgencyServices'
+include 'SalesAgencyPersistance'
+include 'SalesAgencyPersistence'
+include 'SalesAgencyServer'
+include 'SalesAgencyClient'
 

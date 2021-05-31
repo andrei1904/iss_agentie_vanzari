@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="salesAgency.client.gui.MainController">
+    <TabPane layoutX="12.0" layoutY="12.0" prefHeight="375.0" prefWidth="576.0" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+          <Tab text="Produse">
+              <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                          <TableView fx:id="tableViewProducts" prefHeight="303.0" prefWidth="576.0">
+                              <columns>
+                                  <TableColumn fx:id="tableColumnProductName" prefWidth="186.66668224334717" text="Nume" />
+                                  <TableColumn fx:id="tableColumnProductPrice" prefWidth="196.33335876464844" text="Pret" />
+                                  <TableColumn fx:id="tableColumnProductQuantity" minWidth="0.0" prefWidth="192.99996948242188" text="Cantitate existenta" />
+                              </columns>
+                          </TableView>
+                          <Button layoutX="233.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleAddOrder" text="Adauga comanda" />
+                      </children>
+                  </AnchorPane>
+              </content>
+          </Tab>
+          <Tab text="Statistici comenzi">
+              <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                          <Label layoutX="74.0" layoutY="14.0" text="Comenzi realizate de dvs." />
+                          <Label layoutX="347.0" layoutY="14.0" text="Comenzi realizate de alti agenti" />
+                          <Line endX="17.000030517578125" endY="284.9999694824219" layoutX="269.0" layoutY="61.0" startX="17.000030517578125" startY="-61.0" />
+                          <TableView fx:id="tableViewMyOrders" layoutX="3.0" layoutY="38.0" prefHeight="273.0" prefWidth="277.0">
+                              <columns>
+                                  <TableColumn fx:id="tableColumnOrderName" prefWidth="92.99999809265137" text="Nume produs" />
+                                  <TableColumn fx:id="tableColumnOrderQuantity" prefWidth="81.33332061767578" text="Cantitate" />
+                           <TableColumn fx:id="tableColumnOrderStatus" prefWidth="103.33335876464844" text="Stare" />
+                              </columns>
+                          </TableView>
+                          <Button layoutX="3.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleCancelOrder" prefHeight="25.0" prefWidth="118.0" text="Anuleaza comanda" />
+                          <TableView fx:id="tableViewOtherOrders" layoutX="292.0" layoutY="38.0" prefHeight="307.0" prefWidth="277.0">
+                              <columns>
+                                  <TableColumn fx:id="tableColumnOtherOrderName" prefWidth="86.0" text="Nume produs" />
+                                  <TableColumn fx:id="tableColumnOtherOrderQuantity" prefWidth="98.0" text="Cantitate" />
+                           <TableColumn fx:id="tableColumnOtherOrderAgentName" prefWidth="91.99996948242188" text="Nume agent" />
+                              </columns>
+                          </TableView>
+                     <Button layoutX="154.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleCompleteOrder" prefHeight="25.0" prefWidth="126.0" text="Comanda completa" />
+                      </children>
+                  </AnchorPane>
+              </content>
+          </Tab>
+      </tabs>
+    </TabPane>
+</AnchorPane>

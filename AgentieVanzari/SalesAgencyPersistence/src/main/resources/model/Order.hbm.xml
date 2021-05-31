@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="salesAgency.model.Order" table="Orders">
+
+        <id name="id" column="id" type="integer">
+            <generator class="identity"/>
+        </id>
+
+        <property name="quantity" column="quantity" type="integer"/>
+
+        <property name="status" column="status">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">salesAgency.model.OrderStatus</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+
+        <property name="totalPrice" column="price" type="integer"/>
+
+        <property name="salesAgentId" column="agentId" type="integer"/>
+
+        <property name="productId" column="productId" type="integer"/>
+    </class>
+</hibernate-mapping>

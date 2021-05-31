@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="352.0" prefWidth="296.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="salesAgency.client.gui.LoginController">
+   <TextField fx:id="textFieldUsername" layoutX="74.0" layoutY="105.0"/>
+   <Label layoutX="121.0" layoutY="76.0" text="Username"/>
+   <Label layoutX="123.0" layoutY="160.0" text="Password"/>
+   <PasswordField fx:id="textFieldPassword" layoutX="73.0" layoutY="188.0"/>
+   <Button layoutX="114.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="33.0"
+           prefWidth="67.0" text="Log in"/>
+</AnchorPane>

@@ -3,16 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-<!--    <util:properties id="jdbcProps1">-->
-<!--        <prop key="motorcycleContest.jdbc.driver">org.sqlite.JDBC</prop>-->
-<!--        <prop key="motorcycleContest.jdbc.url">jdbc:sqlite:C:/Fac/Sem4/MPP/Proiect/Db/MotorcycleContest.db</prop>-->
-<!--    </util:properties>-->
+    <bean id="hibernateUtil" class="salesAgency.persistence.HibernateUtil"/>
 
-<!--    <util:properties id="jdbcProps" location="classpath:bd.config"/>-->
-
-    <bean id="hibernateUtil" class="repository.HibernateUtil"/>
-
-    <bean id="salesAgentRepo" class="repository.SalesAgentRepository">
+    <bean id="salesAgentRepo" class="salesAgency.persistence.SalesAgentRepository">
         <constructor-arg ref="hibernateUtil"/>
     </bean>
 
@@ -20,7 +13,7 @@
         <constructor-arg ref="salesAgentRepo"/>
     </bean>
 
-    <bean id="productRepo" class="repository.ProductRepository">
+    <bean id="productRepo" class="salesAgency.persistence.ProductRepository">
         <constructor-arg ref="hibernateUtil"/>
     </bean>
 
@@ -28,9 +21,18 @@
         <constructor-arg ref="productRepo"/>
     </bean>
 
+    <bean id="orderRepo" class="salesAgency.persistence.OrderRepository">
+        <constructor-arg ref="hibernateUtil"/>
+    </bean>
+
+    <bean id="orderService" class="service.OrderService">
+        <constructor-arg ref="orderRepo"/>
+    </bean>
+
     <bean id="allService" class="service.AllService">
         <constructor-arg ref="salesAgentService"/>
         <constructor-arg ref="productService"/>
+        <constructor-arg ref="orderService"/>
     </bean>
 
 </beans>
